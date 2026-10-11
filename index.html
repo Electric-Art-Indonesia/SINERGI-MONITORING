@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IoT Power Monitoring | SINERGI </title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo">⚡</div>
+      <div class="brand-text">
+        <h1>SINERGI POWER MONITORING</h1>
+        <p>PT YOGYA PRESISI TECHNIKATAMA INDUSTRI &nbsp;•&nbsp; 4 Industrial Loads</p>
+      </div>
+    </div>
+    <div class="clock-box">
+      <div class="clock-time" id="clockTime">--:--:--</div>
+      <div class="clock-date" id="clockDate">Memuat waktu...</div>
+      <div class="clock-src" id="clockSrc">● IoT ACTIVE</div>
+    </div>
+  </header>
+
+  <!-- STATUS -->
+  <div class="status-row">
+    <div class="status-chip"><span class="dot"></span>DEVICE Online</div>
+    <div class="status-chip"><span class="dot"></span>LOAD 4 MESIN Aktif</div>
+    <div class="status-chip"><span class="dot"></span>Sistem Normal</div>
+    <div class="status-chip" id="lastUpdate">Update: --</div>
+  </div>
+
+  <!-- LOAD CARDS -->
+  <div class="section-title">
+    <div class="bar"></div>
+    <h2>Realtime Measurement</h2>
+    <div class="sub">— 4 Channel Load</div>
+  </div>
+  <div class="loads-grid" id="loadsGrid"></div>
+
+  <!-- HOURLY -->
+  <div class="section-title">
+    <div class="bar"></div>
+    <h2>Konsumsi Daya Per Jam</h2>
+    <div class="sub">— 24 Jam Terakhir</div>
+  </div>
+  <div class="charts-grid wide">
+    <div class="chart-card">
+      <div class="chart-head">
+        <h3>Konsumsi Energi Tiap Beban / Jam</h3>
+        <div class="tag">kWh</div>
+      </div>
+      <div class="chart-wrap tall"><canvas id="chartHourly"></canvas></div>
+    </div>
+  </div>
+
+  <!-- DAILY + 30 DAYS -->
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-head">
+        <h3>Konsumsi Tiap Beban / Hari</h3>
+        <div class="tag">7 Hari</div>
+      </div>
+      <div class="chart-wrap"><canvas id="chartDaily"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-head">
+        <h3>Konsumsi Tiap Beban / Bulan</h3>
+        <div class="tag">30 Hari</div>
+      </div>
+      <div class="chart-wrap"><canvas id="chart30Days"></canvas></div>
+    </div>
+  </div>
+
+  <!-- TOTAL -->
+  <div class="section-title">
+    <div class="bar"></div>
+    <h2>Total Gabungan 4 Beban</h2>
+    <div class="sub">— Kombinasi Sistem</div>
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-head">
+        <h3>Total Konsumsi Harian</h3>
+        <div class="tag">14 Hari</div>
+      </div>
+      <div class="chart-wrap"><canvas id="chartTotalDaily"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-head">
+        <h3>Total Konsumsi Bulanan</h3>
+        <div class="tag">12 Bulan</div>
+      </div>
+      <div class="chart-wrap"><canvas id="chartTotalMonthly"></canvas></div>
+    </div>
+  </div>
+
+  <footer>© <span>KEMBARA UNYVERSE • SINERGI </span> &nbsp; Smart Industrial Power Monitoring</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
